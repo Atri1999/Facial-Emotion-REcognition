@@ -45,7 +45,7 @@ if __name__ == "__main__":
         #print(x,y,w,h)
         emotion=detect_emotion(gray_img[x:x+w,y:y+h])
         image=cv2.rectangle(img, (x, y), (x + w, y + h), (255, 100, 0), thickness=5)
-        image=cv2.putText(image,emotion, (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        image=cv2.putText(image,emotion, (int(x), int(y-10)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         print(emotion)
         cv2.imshow('image',image)
         cv2.waitKey(0)

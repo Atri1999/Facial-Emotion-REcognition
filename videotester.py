@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 import resnet9
+import sys
 
 
 def facial_emotion_detection(faces_detected,test_img,gray_img):
@@ -48,10 +49,14 @@ model.eval()
 classes = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
 
 if __name__=="__main__":
+    file_name=0
     # for detecting faces
+    if len(sys.argv)>1:
+        file_name=sys.argv[1]
+
 
     face_haar_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(file_name)
 
     while True:
         ret, test_img = cap.read()  # captures frame and returns boolean value and captured image
